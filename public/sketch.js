@@ -75,11 +75,11 @@ function createtfmodel(){
       kernelInitializer: 'VarianceScaling',
       activation: 'softmax'
     }));
-    // const LEARNING_RATE = 0.15;
-    // const optimizer = tf.train.sgd(LEARNING_RATE);
+    const LEARNING_RATE = 0.15;
+    const optimizer = tf.train.sgd(LEARNING_RATE);
     tfmodel.compile({
-      optimizer: "rmsprop",
-      loss: 'meanSquaredError',
+      optimizer: optimizer,
+      loss: 'categoricalCrossentropy',
       metrics: ['accuracy'],
 	});
 }
